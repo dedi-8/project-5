@@ -9,6 +9,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +43,6 @@ Route::get('register',[AuthController:: class,'showRegister']);
 Route::get('create',[HomeController:: class,'showCreate']);
 Route::get('template.base',[HomeController:: class,'showTemplate']);
 
-Route::resource('produk', ProdukController::class);
 
 Route::get('produk',[ProdukController:: class,'index']);
 Route::get('produk/create',[ProdukController:: class,'create']);
@@ -91,6 +91,14 @@ Route::get('user/{user}',[UserController:: class, 'show']);
 Route::get('user/{user}/edit',[UserController:: class, 'edit']);
 Route::put('user/{user}',[UserController:: class, 'update']);
 Route::delete('user/{user}',[UserController:: class, 'destroy']);
+
+Route::get('register',[RegisterController:: class,'index']);
+Route::get('register/create',[UserController:: class,'create']);
+Route::post('register',[RegisterController:: class,'store']);
+Route::get('register/{register}',[RegisterController:: class, 'show']);
+Route::get('register/{register}/edit',[RegisterController:: class, 'edit']);
+Route::put('register/{register}',[RegisterController:: class, 'update']);
+Route::delete('register/{register}',[RegisterController:: class, 'destroy']);
 
 
 
