@@ -8,7 +8,7 @@
 				<div class="card mt-4">
 					<div class="card-header">
 						Edit Data Produk
-						<form action="{{url('produk', $produk->id)}}" method="post">
+						<form action="{{url('admin/produk', $produk->id)}}" method="post">
 							@csrf
 							@method('PUT')
 					</div>

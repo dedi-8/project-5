@@ -47,7 +47,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('produk')}}" class="nav-link">
+            <a href="{{url('admin/produk')}}" class="nav-link">
               <i class="nav-icon fas fa-shopping-cart"></i>
               <p>
                 Produk
@@ -75,7 +75,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('user')}}" class="nav-link">
+                <a href="{{url('admin/user')}}" class="nav-link">
                   <i class="fas fa-user nav-icon"></i>
                   <p>User</p>
                 </a>

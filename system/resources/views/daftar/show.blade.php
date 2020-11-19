@@ -10,10 +10,10 @@
 						Detail Data Register
 					</div>
 					<div class="card-body">
-						<h4>{{$register->nama}}</h4><hr>
+						<h4>{{$daftar->nama}}</h4><hr>
 						<p>
-							{{"@".$register->username}} |
-							Email : {{$register->email}} |
+							{{"@".$daftar->username}} |
+							Email : {{$daftar->email}} |
 						</p>
 					</div>
 				</div>

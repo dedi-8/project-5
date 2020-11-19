@@ -26,11 +26,11 @@
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register Admin Baru</p>
-
-      <form action="../../index.html" method="post">
+      <p class="login-box-msg">Register</p>
+        @csrf
+      <form action="{{url('register')}}" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nama Lengkap">
+          <input type="nama" class="form-control" placeholder="Nama" name="nama">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -38,7 +38,15 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="username" class="form-control" placeholder="username" name="username">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Email" name="email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -46,15 +54,14 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Kata Sandi">
+          <input type="password" class="form-control" placeholder="Kata Sandi" name="password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Konfirmasi Kata Sandi">
+          <div class="input-group mb-3">
+          <input type="confirpassword" class="form-control" placeholder="Konfirmasi Kata Sandi" name="confirpassword">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -77,7 +84,7 @@
           <!-- /.col -->
         </div>
       </form>
-      <a href="login.html" class="text-center">Sudah Memiliki Akun</a>
+      <a href="{{url('login')}}" class="text-center">Sudah Memiliki Akun</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

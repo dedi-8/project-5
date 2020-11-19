@@ -26,8 +26,15 @@ class HomeController extends Controller{
 	function showTemplate(){
 		return view('template.base');
 	}
-	function test($produk){
-		echo "Nama Produk adalah $produk";
+	function test($produk, $hargaMin =0 , $hargaMax =0){
+		if($produk == 'lampu'){
+			echo "Tampilkan Produk Lampu";
+		}elseif ($produk == 'spiker') {
+			echo "Produk Spiker";
+		}
+		echo "<br>";
+		echo "Harga minimal adalah $hargaMin <br>";
+		echo "Harga Maximal adalah $hargaMax <br>";
 	}
 }
 

@@ -127,6 +127,9 @@
           <a href="{{url('logout')}}" class="dropdown-item">
             <i class="fa fa-sign-out"></i> Logout
           </a>
+          <a href="{{url('daftar')}}" class="nav-link">
+                  <i class="fas fa-user nav-icon"></i> Daftar
+          </a>
            
           <div class="dropdown-divider"></div>
         </div>

@@ -6,8 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Register extends Authenticatable
+class Daftar extends Authenticatable
 {
-    protected $table = 'register';
+    protected $table = 'daftar';
     use Notifiable;
 }

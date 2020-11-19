@@ -9,7 +9,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DaftarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('test/{produk}',[HomeController:: class,'test']);
+Route::get('test/{produk}/{hargaMin?}/{hargaMax?}',[HomeController:: class,'test']);
 
 Route::get('beranda',[HomeController:: class,'showBeranda']);
 
@@ -36,21 +36,35 @@ Route::get('pelanggan',[HomeController:: class,'showPelanggan']);
 Route::get('supplier',[HomeController:: class,'showSupplier']);
 
 Route::get('login',[AuthController:: class,'showLogin']);
-Route::post('login',[AuthController:: class,'loginProcess']);
+Route::post('login',[AuthController:: class,'loginProcess'])->name('login');
 Route::get('logout',[AuthController:: class,'logout']);
+
 
 Route::get('register',[AuthController:: class,'showRegister']);
 Route::get('create',[HomeController:: class,'showCreate']);
 Route::get('template.base',[HomeController:: class,'showTemplate']);
 
 
-Route::get('produk',[ProdukController:: class,'index']);
-Route::get('produk/create',[ProdukController:: class,'create']);
-Route::post('produk',[ProdukController:: class,'store']);
-Route::get('produk/{produk}',[ProdukController:: class, 'show']);
-Route::get('produk/{produk}/edit',[ProdukController:: class, 'edit']);
-Route::put('produk/{produk}',[ProdukController:: class, 'update']);
-Route::delete('produk/{produk}',[ProdukController:: class, 'destroy']);
+Route::prefix('admin')->middleware('auth')->group(function(){
+		Route::get('produk',[ProdukController:: class,'index']);
+		Route::get('produk/create',[ProdukController:: class,'create']);
+		Route::post('produk',[ProdukController:: class,'store']);
+		Route::get('produk/{produk}',[ProdukController:: class, 'show']);
+		Route::get('produk/{produk}/edit',[ProdukController:: class, 'edit']);
+		Route::put('produk/{produk}',[ProdukController:: class, 'update']);
+		Route::delete('produk/{produk}',[ProdukController:: class, 'destroy']);
+
+
+		Route::get('user',[UserController:: class,'index']);
+		Route::get('user/create',[UserController:: class,'create']);
+		Route::post('user',[UserController:: class,'store']);
+		Route::get('user/{user}',[UserController:: class, 'show']);
+		Route::get('user/{user}/edit',[UserController:: class, 'edit']);
+		Route::put('user/{user}',[UserController:: class, 'update']);
+		Route::delete('user/{user}',[UserController:: class, 'destroy']);
+	});
+
+
 
 Route::get('kategory',[KategoryController:: class,'index']);
 Route::get('kategory/create',[KategoryController:: class,'create']);
@@ -84,21 +98,12 @@ Route::get('promo/{promo}/edit',[PromoController:: class, 'edit']);
 Route::put('promo/{promo}',[PromoController:: class, 'update']);
 Route::delete('promo/{promo}',[PromoController:: class, 'destroy']);
 
-Route::get('user',[UserController:: class,'index']);
-Route::get('user/create',[UserController:: class,'create']);
-Route::post('user',[UserController:: class,'store']);
-Route::get('user/{user}',[UserController:: class, 'show']);
-Route::get('user/{user}/edit',[UserController:: class, 'edit']);
-Route::put('user/{user}',[UserController:: class, 'update']);
-Route::delete('user/{user}',[UserController:: class, 'destroy']);
-
-Route::get('register',[RegisterController:: class,'index']);
-Route::get('register/create',[UserController:: class,'create']);
-Route::post('register',[RegisterController:: class,'store']);
-Route::get('register/{register}',[RegisterController:: class, 'show']);
-Route::get('register/{register}/edit',[RegisterController:: class, 'edit']);
-Route::put('register/{register}',[RegisterController:: class, 'update']);
-Route::delete('register/{register}',[RegisterController:: class, 'destroy']);
 
 
-
+Route::get('daftar',[DaftarController:: class,'index']);
+Route::get('daftar/create',[DaftarController:: class,'create']);
+Route::post('daftar',[DaftarController:: class,'store']);
+Route::get('daftar/{daftar}',[DaftarController:: class, 'show']);
+Route::get('daftar/{daftar}/edit',[DaftarController:: class, 'edit']);
+Route::put('daftar/{daftar}',[DaftarController:: class, 'update']);
+Route::delete('daftar/{daftar}',[DaftarController:: class, 'destroy']);
